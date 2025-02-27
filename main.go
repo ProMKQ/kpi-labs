@@ -20,7 +20,7 @@ func timeHandler(writer http.ResponseWriter, request *http.Request) {
 	response := TimeResponse{Time: time.Now().Format(time.RFC3339)}
 	writer.Header().Set("Content-Type", "application/json")
 	if err := json.NewEncoder(writer).Encode(response); err != nil {
-		log.Fatal("Could not encode response:", err)
+		log.Println("Error: Could not encode response:", err)
 	}
 }
 
